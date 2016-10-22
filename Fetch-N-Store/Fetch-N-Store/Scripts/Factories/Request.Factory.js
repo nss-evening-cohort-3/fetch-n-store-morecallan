@@ -1,13 +1,13 @@
 ﻿app.factory('RequestFactory', function ($http, $q) {
 
-    getRequest = function (url) {
+    getRequest = function (method, url) {
         return $q(function (resolve, reject) {
             $http({
-                method: 'GET',
+                method: `${method}`,
                 url: `${url}`
-            }).success(function (data) {
-                console.log(data)
-                resolve(data);
+            }).success(function (response) {
+                console.log(response)
+                resolve(response);
             });
         });
     }
