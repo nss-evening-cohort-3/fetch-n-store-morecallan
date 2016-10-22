@@ -7,9 +7,25 @@
     <p class="lead">As an Anonymous User,
     I want to be able to make an HTTP request using a HTTP Method and URL I specify,
     So that I can examine the response times.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p><a href="https://github.com/nss-evening-cohort-3/fetch-n-store-morecallan" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
-    {{1+2}}
+    <div class="center">
+        <form class="form-inline" ng-submit="collectData()">
+            <div class="form-group">
+                <select class="form-control">
+                    <option value="get">GET</option>
+                    <option value="head">HEAD</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputUrl" placeholder="URL">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Fetch</button>
+                <button type="submit" class="btn btn-info">Fetch</button>
+            </div>
+        </form>
+    </div>
 </div>
