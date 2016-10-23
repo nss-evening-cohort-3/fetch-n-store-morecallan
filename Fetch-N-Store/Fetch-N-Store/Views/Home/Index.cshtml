@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<div ng-controller="RequestCtrl">
+<div>
     <div class="jumbotron">
         <h1>FETCH'N'STORE</h1>
         <p class="lead">
@@ -18,8 +18,8 @@
             <form class="form-inline" ng-submit="collectData()">
                 <div class="form-group">
                     <select class="form-control" ng-model="method">
-                        <option value="GET">GET</option>
-                        <option value="HEAD">HEAD</option>
+                        <option ng-value="GET">GET</option>
+                        <option ng-value="HEAD">HEAD</option>
                     </select>
                 </div>
                 <div class="form-group">

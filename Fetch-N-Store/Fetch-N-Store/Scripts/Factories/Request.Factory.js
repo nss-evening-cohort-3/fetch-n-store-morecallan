@@ -5,9 +5,8 @@
             $http({
                 method: `${method}`,
                 url: `${url}`
-            }).success(function (response) {
-                console.log(response)
-                resolve(response);
+            }).success(function (data, status, headers, config) {
+                resolve({response: data, status: status, headers: new Date()});
             });
         });
     }
