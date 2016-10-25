@@ -20,5 +20,22 @@ namespace Fetch_N_Store.DAL
         {
             Context = _context;
         }
+
+        public List<Response> GetAllResponses()
+        {
+            return Context.Responses.ToList();
+        }
+
+        public Response GetSingleResponseById(int id)
+        {
+            Response found_response = Context.Responses.FirstOrDefault(a => a.ResponseId == id);
+            return found_response;
+        }
+
+        public void AddResponse(Response _response)
+        {
+            Context.Responses.Add(_response);
+            Context.SaveChanges();
+        }
     }
 }
