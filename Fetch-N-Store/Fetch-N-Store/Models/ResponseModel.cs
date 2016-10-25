@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Fetch_N_Store.Models
 {
-    public class ResponseModel
+    public class Response
     {
         [Key]
         public int ResponseId { get; set; }
@@ -14,7 +14,7 @@ namespace Fetch_N_Store.Models
         public int StatusCode { get; set; }
         [Required]
         public string URL { get; set; }
-        [Required]
+        [Required]   
         public DateTime ResponseTime { get; set; }
     }
 }
