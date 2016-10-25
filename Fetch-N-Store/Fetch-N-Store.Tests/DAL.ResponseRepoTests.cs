@@ -59,5 +59,18 @@ namespace Fetch_N_Store.Tests
             //Assert
             Assert.AreEqual(expected_response_count, actual_response_count);
         }
+
+        [TestMethod]
+        public void ResponseRepoCanAddStudent()
+        {
+            //Arrange
+            repo.AddResponse(new Response { ResponseId = 1, StatusCode = 200, URL = "www.google.com", ResponseTime = new DateTime() });
+            List<Response> responses_returned = repo.GetAllResponses();
+            //Act
+            int expected_response_count = 1;
+            int actual_response_count = responses_returned.Count();
+            //Assert
+            Assert.AreEqual(expected_response_count, actual_response_count);
+        }
     }
 }
