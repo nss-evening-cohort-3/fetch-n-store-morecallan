@@ -33,27 +33,35 @@
         </div>
     </div>
 
-    <div class="row" ng-repeat="response in responses" ng-show="responses" form-action="/api/Response" method="post">
+    <div class="row" ng-repeat="response in responses" ng-show="responses" ng-submit="storeData(response)">
         <form class="form-inline">
             <div class="form-group">
                 <label for="statusCode">Status Code</label>
-                <input type="text" class="form-control" id="statusCode" name="statusCode" disabled ng-model="response.statusCode">
+                <input type="text" class="form-control" id="statusCode" name="statusCode" disabled ng-model="response.StatusCode">
             </div>
             <div class="form-group">
                 <label for="URL">URL</label>
                 <input type="text" class="form-control" id="URL" name="URL" disabled ng-model="response.URL">
             </div>
             <div class="form-group">
-                <label for="method">URL</label>
-                <input type="text" class="form-control" id="method" name="method" disabled ng-model="response.method">
+                <label for="method">METHOD</label>
+                <input type="text" class="form-control" id="method" name="method" disabled ng-model="response.Method">
             </div>
             <div class="form-group">
                 <label for="responseTime">Response Time</label>
-                <input type="text" class="form-control" id="responseTime" name="responseTime" disabled ng-model="response.responseTime">
+                <input type="text" class="form-control" id="responseTime" name="responseTime" disabled ng-model="response.ResponseTime">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-info">Store</button>
             </div>
         </form>
+    </div>
+
+
+    <div ng-show="storedResponses">
+        <h2>Your Stored Responses:</h2>
+        <ul>
+            <li ng-repeat="storedResponse in storedResponses"> Status Code: {{storedResponse.StatusCode}}, URL: {{storedResponse.URL}}, Response Time: {{storedResponse.ResponseTime}} </li>
+        </ul>
     </div>
 </div>
