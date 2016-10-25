@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="RequestCtrl">
+    <div class="jumbotron">
+        <h1>FETCH'N'STORE</h1>
+        <p class="lead">
+            As an Anonymous User,
+            I want to be able to make an HTTP request using a HTTP Method and URL I specify,
+            So that I can examine the response times.
+        </p>
+        <p><a href="https://github.com/nss-evening-cohort-3/fetch-n-store-morecallan" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="center">
+            <form class="form-inline" ng-submit="collectData()">
+                <div class="form-group">
+                    <select class="form-control" ng-model="method">
+                        <option ng-value="GET">GET</option>
+                        <option ng-value="HEAD">HEAD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputUrl" placeholder="URL" ng-model="URL">
+                </div>
+                <div class="form-group">
+                    <button type="submit" ng-click="fetchData()" class="btn btn-success">Fetch</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" ng-repeat="response in responses" ng-show="responses" ng-submit="storeData(response)">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="statusCode">Status Code</label>
+                <input type="text" class="form-control" id="statusCode" name="statusCode" disabled ng-model="response.StatusCode">
+            </div>
+            <div class="form-group">
+                <label for="URL">URL</label>
+                <input type="text" class="form-control" id="URL" name="URL" disabled ng-model="response.URL">
+            </div>
+            <div class="form-group">
+                <label for="method">METHOD</label>
+                <input type="text" class="form-control" id="method" name="method" disabled ng-model="response.Method">
+            </div>
+            <div class="form-group">
+                <label for="responseTime">Response Time</label>
+                <input type="text" class="form-control" id="responseTime" name="responseTime" disabled ng-model="response.ResponseTime">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Store</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div ng-show="storedResponses">
+        <h2>Your Stored Responses:</h2>
+        <ul>
+            <li ng-repeat="storedResponse in storedResponses"> Status Code: {{storedResponse.StatusCode}}, URL: {{storedResponse.URL}}, Response Time: {{storedResponse.ResponseTime}} </li>
+        </ul>
+    </div>
+</div>

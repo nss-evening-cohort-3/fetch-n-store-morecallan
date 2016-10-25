@@ -1,0 +1,11 @@
+﻿@{
+   ViewBag.Title = "Responses";
+}
+<ul>
+    @foreach (var response in ViewBag.Responses)
+    {
+        <li>Status Code: @response.StatusCode, URL: @response.URL, Response Time: @response.ResponseTime </li>
+    }
+</ul>
+
+<p>Use this area to provide additional information.</p>
