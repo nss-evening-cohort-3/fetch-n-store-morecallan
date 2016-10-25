@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
+<div ng-controller="RequestCtrl">
     <div class="jumbotron">
         <h1>FETCH'N'STORE</h1>
         <p class="lead">
@@ -27,11 +27,33 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" ng-click="fetchData()" class="btn btn-success">Fetch</button>
-                    <button type="submit" ng-click="storeData()" class="btn btn-info">Store</button>
+
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="row">{{response}}</div>
+    <div class="row" ng-repeat="response in responses" ng-show="responses" form-action="/api/Response" method="post">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="statusCode">Status Code</label>
+                <input type="text" class="form-control" id="statusCode" name="statusCode" disabled ng-model="response.statusCode">
+            </div>
+            <div class="form-group">
+                <label for="URL">URL</label>
+                <input type="text" class="form-control" id="URL" name="URL" disabled ng-model="response.URL">
+            </div>
+            <div class="form-group">
+                <label for="method">URL</label>
+                <input type="text" class="form-control" id="method" name="method" disabled ng-model="response.method">
+            </div>
+            <div class="form-group">
+                <label for="responseTime">Response Time</label>
+                <input type="text" class="form-control" id="responseTime" name="responseTime" disabled ng-model="response.responseTime">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Store</button>
+            </div>
+        </form>
+    </div>
 </div>
